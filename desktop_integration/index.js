@@ -4,6 +4,8 @@ var BrowserWindow = require('browser-window');  // Module to create native brows
 // Report crashes to our server.
 require('crash-reporter').start();
 
+var webserver = require('./server');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
@@ -23,9 +25,10 @@ app.on('ready', function() {
   var size = atomScreen.getPrimaryDisplay().workAreaSize;
   mainWindow = new BrowserWindow({ width: size.width, height: size.height });
 
-  setTimeout( onInit, 1000 );
+  setTimeout( onInit, 1100 );
+  
   var progress = 0;
-  var _progress = setInterval(function(){
+  _progress = setInterval(function(){
     mainWindow.setProgressBar(progress);
     progress += 0.1;
   }, 100);
@@ -45,5 +48,6 @@ function onInit (){
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+    webserver.close();
   });
 }
