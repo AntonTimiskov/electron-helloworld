@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Integration!</title>
+    <script>
+      function getTime(){
+        return require('./timer').getTime();
+      }
+      function setTime(eid) {
+        document.getElementById(eid).innerHTML = getTime();
+      }
+      function copyToBuffer() {
+        require('clipboard').writeText(getTime().toString());
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Time!</h1>
+    <button onClick="setTime('time')">Get actual Server Time</button>
+    <p id="time"></p>
+    <button onClick="copyToBuffer()">Copy time to Clipboard</button>
+    <hr>
+
+  </body>
+</html>

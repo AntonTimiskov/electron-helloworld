@@ -1,0 +1,15 @@
+{
+  "name": "electron-based-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "desktop_integration/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron hello_world"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "electron-prebuilt": "^0.25.2"
+  }
+}
